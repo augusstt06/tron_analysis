@@ -1,4 +1,4 @@
-# TRON의 일일 시장가 변동 그래프
+# TRON의 일일 시장가 변동 그래프 (시간 기준)
 
 import pandas as pd
 import matplotlib.pyplot as plt
