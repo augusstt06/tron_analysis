@@ -29,11 +29,17 @@ ax = fig.add_subplot()
 data = pyupbit.get_ohlcv(ticker='KRW-TRX', interval='day', count=14)
 
 df_tron = pd.DataFrame(
-    {"Open Price": data["open"], "Close Price": data["close"]})
+    {
+        "Open Price": data["open"],
+        "Close Price": data["close"]
+    }
+)
 
 tron_open = df_tron['Open Price']
 tron_close = df_tron['Close Price']
 max_difference = {"index": 0, "difference": 0}
+print(tron_open, "시가")
+print(tron_close, "종가")
 
 for i in range(len(tron_close)):
     difference = tron_close[i] - tron_open[i]
@@ -50,7 +56,6 @@ for i in range(len(tron_close)):
                 "difference": abs(difference),
                 "more big": tron_open[i]
             }
-df_difference = pd.DataFrame({"Difference": tron_open - tron_close})
 
 ax.plot(df_tron.index, tron_open, marker='o', markersize=10, label='open')
 ax.plot(df_tron.index, tron_close,
