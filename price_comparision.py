@@ -1,13 +1,3 @@
-# 국내 거래소와 해외 거래소에서의 TRON 가격 비교
-
-
-# USDT => KRW 변환계수 : # 1320.84
-# https://paybis.com/ko/usdt-to-krw/1/
-
-# pyupbit
-# https://github.com/sharebook-kr/pyupbit
-
-# 차이 최소, 최댓값 구해놓기
 import pandas as pd
 import pyupbit
 import matplotlib.pyplot as plt
@@ -38,6 +28,7 @@ max_difference = {
     'index': 0,
     'difference': 0
 }
+# 차이 넣기
 # for i in range(len(tron_foreign)):
 #     difference =
 ax.plot(tron_domestic.index,
@@ -51,5 +42,6 @@ plt.fill_between(tron_domestic.index,
 
 ax.legend()
 plt.xticks(fontsize=8)
+
 plt.title("TRON price between domestic and overseas exchanges")
 plt.show()
