@@ -29,8 +29,10 @@ max_difference = {
     'difference': 0
 }
 # 차이 넣기
-# for i in range(len(tron_foreign)):
-#     difference =
+for i in range(len(tron_foreign)):
+    difference = tron_domestic[i] - tron_foreign[i]
+
+    # if ()
 ax.plot(tron_domestic.index,
         tron_domestic['open'], marker='o', markersize=10, label='Domestic Price')
 
