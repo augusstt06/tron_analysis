@@ -28,11 +28,7 @@ max_difference = {
     'index': 0,
     'difference': 0
 }
-# 차이 넣기
-for i in range(len(tron_foreign)):
-    difference = tron_domestic[i] - tron_foreign[i]
 
-    # if ()
 ax.plot(tron_domestic.index,
         tron_domestic['open'], marker='o', markersize=10, label='Domestic Price')
 
@@ -43,6 +39,7 @@ plt.fill_between(tron_domestic.index,
                  tron_domestic['open'], tron_foreign['open'], interpolate=True, alpha=0.25)
 
 ax.legend()
+
 plt.xticks(fontsize=8)
 
 plt.title("TRON price between domestic and overseas exchanges")
