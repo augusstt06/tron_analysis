@@ -7,7 +7,7 @@ fig = plt.figure(figsize=(20, 5))
 fig.set_facecolor('white')
 ax = fig.add_subplot()
 
-data = pyupbit.get_ohlcv(ticker='KRW-TRX', interval='day', count=14)
+data = pyupbit.get_ohlcv(ticker='KRW-TRX', interval='day')
 
 df_tron = pd.DataFrame(
     {
@@ -15,6 +15,7 @@ df_tron = pd.DataFrame(
         "Close Price": data["close"]
     }
 )
+
 tron_open = df_tron['Open Price']
 tron_close = df_tron['Close Price']
 max_difference = {"index": 0, "difference": 0}
@@ -34,6 +35,8 @@ for i in range(len(tron_close)):
                 "difference": abs(difference),
                 "more big": tron_open[i]
             }
+
+
 ax.plot(df_tron.index, tron_open, marker='o', markersize=10, label='open')
 ax.plot(df_tron.index, tron_close,
         marker='o', markersize=10, label='close')
@@ -43,5 +46,5 @@ ax.legend()
 
 plt.title('Daily Market Price(Open/Close) for TRX')
 plt.text(df_tron.index[max_difference['index']],
-         max_difference['more big'], f"Max Difference Point \n {max_difference['difference']}", weight="heavy", color="red", ha="center", position=(df_tron.index[max_difference['index']], max_difference['more big']+0.05))
+         max_difference['more big'], f"M/D {max_difference['difference']} \n Date {df_tron.index[max_difference['index']]}", weight="heavy", color="red", ha="center", position=(df_tron.index[max_difference['index']], max_difference['more big']+0.05))
 plt.show()
