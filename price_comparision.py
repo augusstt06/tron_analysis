@@ -8,10 +8,10 @@ fig.set_facecolor('white')
 ax = fig.add_subplot()
 
 domestic = pyupbit.get_ohlcv(
-    ticker="KRW-TRX", interval="day", count=30)
+    ticker="KRW-TRX", interval="day")
 
 foreign = pyupbit.get_ohlcv(
-    ticker="USDT-TRX", interval="day", count=30)
+    ticker="USDT-TRX", interval="day")
 
 tron_domestic = pd.DataFrame({
     "open": domestic['open'],
